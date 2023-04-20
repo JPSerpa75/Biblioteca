@@ -3,40 +3,23 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
-        <h1>ASP.NET</h1>
-        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+        <h1>Biblioteca</h1>
+        <p>
+            Bem-vindo! Aqui, você encontrará uma vasta seleção 
+            de recursos de leitura, desde livros e revistas até recursos digitais, para 
+            atender a todas as suas necessidades de aprendizado e entretenimento. 
+            Além de ser um local para empréstimos de livros, a nossa 
+            biblioteca oferece uma variedade de eventos e 
+            atividades emocionantes para você explorar. Venha nos visitar e 
+            descubra um mundo de possibilidades literárias!
+        </p>
+        <div class="row text-center">
+            <div class="col-12 m-auto">
+                <img id="imgHome" src="Images/download.jpg" style="width:50%"/>
+            </div>
+        </div>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>
+
 
 </asp:Content>

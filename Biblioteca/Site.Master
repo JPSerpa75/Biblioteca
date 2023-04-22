@@ -56,7 +56,6 @@
                         <li><a runat="server" href="~/Contact">Livros</a></li>
                         <li><a runat="server" href="~/Contact">Devolução</a></li>
                         <li><a runat="server" href="~/Contact">Empréstimos</a></li>
-                        Empréstimos
                     </ul>
                 </div>
             </div>

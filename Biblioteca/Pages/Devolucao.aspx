@@ -1,19 +1,21 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Devolucao.aspx.cs" Inherits="Biblioteca.Pages.Devolucao" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="row" style="margin-top: 3%">
-        <div class="col-12">
-            <span>Nome do usuário:</span>
-            <asp:TextBox ID="txtNome" runat="server" class="form-control" Style="margin-bottom: 1%"></asp:TextBox>
-
-            <span>Nome do livro:</span>
-            <asp:TextBox ID="txtLivro" runat="server" class="form-control"></asp:TextBox>
-            <asp:Button ID="btnFiltrar" runat="server" Text="Filtar" OnClick="btnFiltrar_Click" class="btn btn-primary mt-4" Style="margin-top: 5px" />
-            <p style="color:red; font-weight:bolder">*Para uma busca completa deixe o campo em branco</p>
-            <p runat="server" id="txtResposta" visible="false" onclick="javascript:esconderCampo()" style="color:red; font-size:24px"></p>
+    <link href="../Content/style.css" rel="stylesheet" />
+    <div class="container">
+        <div class="container-main">
+            <div class="content">
+                <span>Nome do usuário:</span>
+                <asp:TextBox ID="txtNome" runat="server" class="form-control" Style="margin-bottom: 1%"></asp:TextBox>
+                <span>Nome do livro:</span>
+                <asp:TextBox ID="txtLivro" runat="server" class="form-control"></asp:TextBox>
+                <asp:Button ID="btnFiltrar" runat="server" Text="Filtar" OnClick="btnFiltrar_Click" class="btn btn-primary mt-4" Style="margin-top: 5px" />
+                <p id="txtObservacao" class="text-center">*Para uma busca completa deixe o campo em branco</p>
+                <p runat="server" class="text-center" id="txtResposta" onclick="esconderCampo()"></p>
+            </div>
         </div>
     </div>
-  
+
     <div class="container mt-4 w-50" runat="server">
 
         <h3 class="text-center mb-2">EMPRÉSTIMOS ATIVOS</h3>
@@ -46,7 +48,7 @@
                                 CommandArgument='<%# Eval("ISBN") + "," + Eval("DPI") %>'
                                 CommandName="Excluir" />
                         </td>
-                        </tr>
+                    </tr>
 
                 </ItemTemplate>
                 <EmptyDataTemplate>
@@ -54,6 +56,34 @@
                 </EmptyDataTemplate>
             </asp:ListView>
         </table>
-
     </div>
+    <script type="text/javascript">
+        function esconderCampo() {
+            document.getElementById('MainContent_txtResposta').style.display = "none";
+        }
+    </script>
+
+    <style>
+        .container {
+        }
+
+        .container-main {
+            display: flex;
+            justify-content: center;
+            margin-top: 2em;
+        }
+        #MainContent_btnFiltrar{
+           width:100%;
+        }
+        #MainContent_txtResposta{
+            color: red;
+            font-size: 24px;
+            margin: 2em 0em;
+        }
+        #txtObservacao{
+            color: red;
+            font-weight: bolder;
+            margin: 2em 0em;
+        }
+    </style>
 </asp:Content>

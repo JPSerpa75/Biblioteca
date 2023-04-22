@@ -44,6 +44,7 @@ namespace Biblioteca.Pages
             int retorno = ta.DropEmprestimo(isbn, dpi, respostaFalha: ref respostaFalha);
             if (retorno == 1) txtResposta.InnerText = "DEVOLUÇÃO EFETUADA COM SUCESSO";
             else txtResposta.InnerText = "Não foi possível realizar a devolução, entre em contato com o administrador!";
+            txtResposta.Style["display"] = "block";
             Carregar_Emprestimos("", "");
         }
     }

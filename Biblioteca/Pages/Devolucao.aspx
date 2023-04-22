@@ -5,11 +5,14 @@
     <div class="container">
         <div class="container-main">
             <div class="content">
-                <span>Nome do usuário:</span>
-                <asp:TextBox ID="txtNome" runat="server" class="form-control" Style="margin-bottom: 1%"></asp:TextBox>
-                <span>Nome do livro:</span>
-                <asp:TextBox ID="txtLivro" runat="server" class="form-control"></asp:TextBox>
-                <asp:Button ID="btnFiltrar" runat="server" Text="Filtar" OnClick="btnFiltrar_Click" class="btn btn-primary mt-4" Style="margin-top: 5px" />
+                <div class="form">
+                    <label>Nome do usuário:</label>
+                    <asp:TextBox ID="txtNome" runat="server" class="form-control" Style="margin-bottom: 1%"></asp:TextBox>
+                    <label>Nome do livro:</label>
+                    <asp:TextBox ID="txtLivro" runat="server" class="form-control"></asp:TextBox>
+                    <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" class="btn btn-primary mt-4" Style="margin-top: 5px" />
+                </div>
+
                 <p id="txtObservacao" class="text-center">*Para uma busca completa deixe o campo em branco</p>
                 <p runat="server" class="text-center" id="txtResposta" onclick="esconderCampo()"></p>
             </div>
@@ -63,27 +66,4 @@
         }
     </script>
 
-    <style>
-        .container {
-        }
-
-        .container-main {
-            display: flex;
-            justify-content: center;
-            margin-top: 2em;
-        }
-        #MainContent_btnFiltrar{
-           width:100%;
-        }
-        #MainContent_txtResposta{
-            color: red;
-            font-size: 24px;
-            margin: 2em 0em;
-        }
-        #txtObservacao{
-            color: red;
-            font-weight: bolder;
-            margin: 2em 0em;
-        }
-    </style>
 </asp:Content>

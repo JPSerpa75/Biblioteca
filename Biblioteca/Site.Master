@@ -51,11 +51,10 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Home</a></li>
-                        <li><a runat="server" href="~/About">Usuários</a></li>
-                        <li><a runat="server" href="~/Contact">Livros</a></li>
-                        <li><a runat="server" href="~/Contact">Devolução</a></li>
-                        <li><a runat="server" href="~/Contact">Empréstimos</a></li>
+                        <li><a runat="server" href="~/Pages/Usuarios">Usuários</a></li>
+                        <li><a runat="server" href="~/Pages/Livros">Livros</a></li>
+                        <li><a runat="server" href="~/Pages/Devolucao">Devolução</a></li>
+                        <li><a runat="server" href="~/Pages/Emprestimos">Empréstimos</a></li>
                     </ul>
                 </div>
             </div>

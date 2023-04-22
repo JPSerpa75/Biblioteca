@@ -8,28 +8,52 @@
 
             <span>Nome do livro:</span>
             <asp:TextBox ID="txtLivro" runat="server" class="form-control"></asp:TextBox>
-
-            <asp:Button ID="btnFiltrar" runat="server" Text="Filtar" class="btn btn-primary mt-4" Style="margin-top: 5px" />
+            <asp:Button ID="btnFiltrar" runat="server" Text="Filtar" OnClick="btnFiltrar_Click" class="btn btn-primary mt-4" Style="margin-top: 5px" />
+            <p style="color:red; font-weight:bolder">*Para uma busca completa deixe o campo em branco</p>
+            <p runat="server" id="txtResposta" visible="false" onclick="javascript:esconderCampo()" style="color:red; font-size:24px"></p>
         </div>
+    </div>
+  
+    <div class="container mt-4 w-50" runat="server">
+
+        <h3 class="text-center mb-2">EMPRÉSTIMOS ATIVOS</h3>
+
+        <table class="table m-auto table-hover table-bordered text-center m-auto">
+            <thead class="thead-dark">
+                <tr>
+                    <td><b>LIVRO</b></td>
+                    <td><b>ISBN</b></td>
+                    <td><b>USUÁRIO</b></td>
+                    <td><b>DPI</b></td>
+                    <td colspan="3"><b>EXCLUIR</b></td>
+                </tr>
+            </thead>
+            <asp:ListView ID="lvEmprestimos" runat="server">
+                <ItemTemplate>
+                    <tr runat="server">
+                        <td><%# Eval("LIVRO")%></td>
+                        <td><%# Eval("ISBN")%></td>
+                        <td><%# Eval("USUARIO")%></td>
+                        <td><%# Eval("DPI")%></td>
+                        <td>
+                            <asp:ImageButton
+                                runat="server"
+                                ID="btnExcluir"
+                                ImageUrl="../Images/dropIcon.png"
+                                ToolTip="Excluir"
+                                OnCommand="btnExcluir_Command"
+                                Style="width: 20px;"
+                                CommandArgument='<%# Eval("ISBN") + "," + Eval("DPI") %>'
+                                CommandName="Excluir" />
+                        </td>
+                        </tr>
+
+                </ItemTemplate>
+                <EmptyDataTemplate>
+                    Não existe emprestimo cadastrado!
+                </EmptyDataTemplate>
+            </asp:ListView>
+        </table>
 
     </div>
-    <asp:GridView ID="GvDevolucao" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" Width="579px" AutoGenerateColumns="False" OnRowDataBound="GridView1_RowDataBound">
-        <Columns>
-            <asp:BoundField DataField="LIVRO" HeaderText="LIVRO" SortExpression="LIVRO" />
-            <asp:BoundField DataField="ISBN" HeaderText="ISBN" SortExpression="ISBN" id="txtIsbn" />
-            <asp:BoundField DataField="USUARIO" HeaderText="USUARIO" SortExpression="USUARIO"/>
-            <asp:BoundField DataField="DPI" HeaderText="DPI" SortExpression="DPI" id="txtDpi"/>
-            <asp:CommandField ShowEditButton="False" ShowDeleteButton="False" />
-        </Columns>
-
-        <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-        <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-        <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-        <SortedAscendingCellStyle BackColor="#F7F7F7" />
-        <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-        <SortedDescendingCellStyle BackColor="#E5E5E5" />
-        <SortedDescendingHeaderStyle BackColor="#242121" />
-    </asp:GridView>
-
 </asp:Content>

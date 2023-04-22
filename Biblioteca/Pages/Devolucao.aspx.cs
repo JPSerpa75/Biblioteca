@@ -9,50 +9,42 @@ namespace Biblioteca.Pages
 {
     public partial class Devolucao : System.Web.UI.Page
     {
-        private int? retorno;
-
+        public int? respostaFalha;
         protected void Carregar_Emprestimos(string nomeLivro, string nomeUser)
         {
             BibliotecaDSTableAdapters.buscaEmprestimoTableAdapter ta = new BibliotecaDSTableAdapters.buscaEmprestimoTableAdapter();
             BibliotecaDS.buscaEmprestimoDataTable dt = ta.GetEmprestimo(nomeLivro, nomeUser);
-            GvDevolucao.DataSource = dt;
-            GvDevolucao.DataBind();
+            lvEmprestimos.DataSource = dt;
+            lvEmprestimos.DataBind();
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Carregar_Emprestimos("", "");
+            if (!Page.IsPostBack)
+            {
+                Carregar_Emprestimos("", "");
+                txtResposta.InnerText = "";
+            }
+               
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
 
             Carregar_Emprestimos(txtLivro.Text, txtNome.Text);
+            txtResposta.InnerText = "";
 
         }
-        protected void GridView1_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            if (e.Row.RowType == DataControlRowType.DataRow)
-            {
-                Button btn = new Button();
-                btn.Text = "Apagar";
-                btn.CommandName = "Apagar";
-                btn.CommandArgument = e.Row.RowIndex.ToString();
-                btn.Click += new EventHandler(btn_Click);
-                e.Row.Cells[4].Controls.Add(btn);
-            }
-        }
 
-        void btn_Click(object sender, EventArgs e)
+        protected void btnExcluir_Command(object sender, CommandEventArgs e)
         {
-            Button btn = sender as Button;
-            GridViewRow row = btn.NamingContainer as GridViewRow;
-            string index = btn.CommandArgument;
+            string[] valor = e.CommandArgument.ToString().Split(',');
+            var dpi = valor[1];
+            var isbn = valor[0];
             BibliotecaDSTableAdapters.buscaEmprestimoTableAdapter ta = new BibliotecaDSTableAdapters.buscaEmprestimoTableAdapter();
-            BibliotecaDS.buscaEmprestimoDataTable dt = ta.DropEmprestimo(txtIsbn.ToString() , txtDpi.ToString(), ref(retorno));
-            GvDevolucao.DataSource = dt;
-            GvDevolucao.DataBind();
-
+            int retorno = ta.DropEmprestimo(isbn, dpi, respostaFalha: ref respostaFalha);
+            if (retorno == 1) txtResposta.InnerText = "DEVOLUÇÃO EFETUADA COM SUCESSO";
+            else txtResposta.InnerText = "Não foi possível realizar a devolução, entre em contato com o administrador!";
+            Carregar_Emprestimos("", "");
         }
-
     }
 }

@@ -42,30 +42,21 @@ namespace Biblioteca.Pages
         protected global::System.Web.UI.WebControls.Button btnFiltrar;
 
         /// <summary>
-        /// Controle GvDevolucao.
+        /// Controle txtResposta.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GvDevolucao;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl txtResposta;
 
         /// <summary>
-        /// Controle txtIsbn.
+        /// Controle lvEmprestimos.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.BoundField txtIsbn;
-
-        /// <summary>
-        /// Controle txtDpi.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.BoundField txtDpi;
+        protected global::System.Web.UI.WebControls.ListView lvEmprestimos;
     }
 }

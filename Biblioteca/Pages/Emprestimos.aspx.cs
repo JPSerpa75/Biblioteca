@@ -16,7 +16,7 @@ namespace Biblioteca.Pages
 
         protected void btnEmprestimo_Click(object sender, EventArgs e)
         {
-            int? resposta = null;
+            int? resposta = 0;
 
             BibliotecaDSTableAdapters.buscaEmprestimoTableAdapter ta = new BibliotecaDSTableAdapters.buscaEmprestimoTableAdapter();
             ta.SetEmprestimo(txtISBN.Text, txtDPI.Text, ref resposta);

@@ -13,5 +13,14 @@ namespace Biblioteca.Pages
         {
 
         }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            BibliotecaDSTableAdapters.buscaUsuarioTableAdapter ta = new BibliotecaDSTableAdapters.buscaUsuarioTableAdapter();
+            BibliotecaDS.buscaUsuarioDataTable bb = ta.GetUsuario(txtNome.Text);
+            gvUsuarios.DataSource = bb;
+            gvUsuarios.DataBind();
+        }
+
     }
 }

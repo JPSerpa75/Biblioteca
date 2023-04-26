@@ -23,16 +23,13 @@ namespace Biblioteca.Pages
             {
                 Carregar_Emprestimos("", "");
                 txtResposta.InnerText = "";
-            }
-               
+            }            
         }
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-
             Carregar_Emprestimos(txtLivro.Text, txtNome.Text);
             txtResposta.InnerText = "";
-
         }
 
         protected void btnExcluir_Command(object sender, CommandEventArgs e)
@@ -40,10 +37,14 @@ namespace Biblioteca.Pages
             string[] valor = e.CommandArgument.ToString().Split(',');
             var dpi = valor[1];
             var isbn = valor[0];
+
             BibliotecaDSTableAdapters.buscaEmprestimoTableAdapter ta = new BibliotecaDSTableAdapters.buscaEmprestimoTableAdapter();
             int retorno = ta.DropEmprestimo(isbn, dpi, respostaFalha: ref respostaFalha);
+
             if (retorno == 1) txtResposta.InnerText = "DEVOLUÇÃO EFETUADA COM SUCESSO";
+
             else txtResposta.InnerText = "Não foi possível realizar a devolução, entre em contato com o administrador!";
+
             txtResposta.Style["display"] = "block";
             Carregar_Emprestimos("", "");
         }

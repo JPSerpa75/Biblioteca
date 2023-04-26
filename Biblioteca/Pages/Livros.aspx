@@ -14,7 +14,6 @@
         </div>
 
         <p id="txtObservacao" class="text-center">*Para uma busca completa deixe os campos em branco</p>
-
     
         <asp:GridView ID="gvLivros" runat="server" AutoGenerateColumns="False" BorderColor="#CCCCCC" HeaderStyle-HorizontalAlign="Center" Width="1100px" CellPadding="4" CellSpacing="4" HorizontalAlign="Center">
         <Columns>
@@ -23,14 +22,12 @@
             <asp:BoundField DataField="isbn" HeaderText="ISBN" />
             <asp:BoundField DataField="genero" HeaderText="GÊNERO" />
             <asp:BoundField DataField="status" HeaderText="STATUS" />
-    
         </Columns>
 
             <HeaderStyle Height="30px" HorizontalAlign="Center" VerticalAlign="Middle" />
             <RowStyle Height="40px" HorizontalAlign="Center" />
 
         </asp:GridView>
-
     </div>
 
 </asp:Content>

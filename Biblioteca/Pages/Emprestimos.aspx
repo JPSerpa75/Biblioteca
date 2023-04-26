@@ -16,29 +16,22 @@
         </div>
 
             <p id="txtResposta" runat="server" onclick="escondeTexto()"></p>
-
-
     </div>
 
     <script>
-
         function escondeTexto() {
             document.getElementById("MainContent_txtResposta").style.display = "none"
         }
 
-
         var inputDPI = document.getElementById("MainContent_txtDPI");
         var inputISBN = document.getElementById("MainContent_txtISBN");
-
 
         inputDPI.addEventListener("keypress", function (e) {
             var keycode = (e.keyCode ? e.keyCode : e.wich)
 
-
             if (keycode < 48 || keycode > 58) {
                 e.preventDefault();
             }
-
         })
 
         inputISBN.addEventListener("keypress", function (e) {
@@ -49,10 +42,6 @@
 
                 e.preventDefault();
             }
-
         })
-
-
     </script>
-
 </asp:Content>

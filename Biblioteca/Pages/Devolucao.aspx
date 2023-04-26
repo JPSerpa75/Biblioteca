@@ -12,7 +12,6 @@
                     <asp:TextBox ID="txtLivro" runat="server" class="form-control"></asp:TextBox>
                     <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" OnClick="btnFiltrar_Click" class="btn btn-primary mt-4" Style="margin-top: 5px" />
                 </div>
-
                 <p id="txtObservacao" class="text-center">*Para uma busca completa deixe o campo em branco</p>
                 <p runat="server" class="text-center" id="txtResposta" onclick="esconderCampo()"></p>
             </div>
@@ -20,9 +19,7 @@
     </div>
 
     <div class="container mt-4 w-50" runat="server">
-
         <h3 class="text-center mb-2">EMPRÉSTIMOS ATIVOS</h3>
-
         <table class="table m-auto table-hover table-bordered text-center m-auto">
             <thead class="thead-dark">
                 <tr>
@@ -52,7 +49,6 @@
                                 CommandName="Excluir" />
                         </td>
                     </tr>
-
                 </ItemTemplate>
                 <EmptyDataTemplate>
                     Não existe emprestimo cadastrado!
@@ -65,5 +61,4 @@
             document.getElementById('MainContent_txtResposta').style.display = "none";
         }
     </script>
-
 </asp:Content>

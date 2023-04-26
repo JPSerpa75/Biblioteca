@@ -21,21 +21,11 @@ namespace Biblioteca.Pages
             BibliotecaDSTableAdapters.buscaEmprestimoTableAdapter ta = new BibliotecaDSTableAdapters.buscaEmprestimoTableAdapter();
             ta.SetEmprestimo(txtISBN.Text, txtDPI.Text, ref resposta);
 
-            Response.Write("resposta = " + resposta);
+            if (resposta == 0) txtResposta.InnerText = "EMPRESTIMO EFETUADO COM SUCESSO";
+            else if (resposta == 1) txtResposta.InnerText = "Erro: Usuário não existe";
+            else if (resposta == 2) txtResposta.InnerText = "Erro: Livro não existe";
+            else if (resposta == 3) txtResposta.InnerText = "Erro: Livro já está emprestado";
 
-            if(resposta == 0)
-            {
-                txtResposta.InnerText = "EMPRESTIMO EFETUADO COM SUCESSO";
-            }else if( resposta == 1)
-            {
-                txtResposta.InnerText = "Erro: Usuário não existe";
-            }else if( resposta == 2)
-            {
-                txtResposta.InnerText = "Erro: Livro não existe";
-            }else if( resposta == 3)
-            {
-                txtResposta.InnerText = "Erro: Livro já está emprestado";
-            }
         }
     }
 }
